@@ -30,6 +30,7 @@ div.innerHTML=`
             <h6>${index.name}</h6>
             <p><img src="Frame.png"class="me-2"/> <span>${index.published_in}</span></p>
             </div>
+
            <button type="button" class="btn " data-bs-toggle="modal" data-bs-target="#exampleModal"onclick="modal_section('${index.id}')">
             <i class="fa-solid fa-arrow-right"></i>
           </button>
@@ -48,6 +49,30 @@ div_container.appendChild(div);
 }
 
 //modal-part-code
+
+const modal_section=search_id=>{
+
+    fetch(`https://openapi.programming-hero.com/api/ai/tool/${search_id}`)
+    .then(res=>res.json())
+    .then(data=>modal_display(data.data))
+}
+const modal_display=(modaldata)=>{
+console.log(modaldata);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 //see all button section
 document.getElementById('seebtn').addEventListener('click',function(){
     fetch('https://openapi.programming-hero.com/api/ai/tools')
