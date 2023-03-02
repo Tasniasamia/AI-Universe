@@ -21,8 +21,8 @@ div.innerHTML=`
             <div class="card-body">
               <h5 class="card-title font-bold">Feature</h5>
        
-              <p class="card-text"> <i class="fa-solid fa-circle-arrow-right"></i>
-            ${index.features.join('<br> <i class="fa-solid fa-circle-arrow-right"></i>')}
+              <p class="card-text"> <i class="fa-solid fa-circle-arrow-right "></i>
+            ${index.features.join('<br> <i class="fa-solid fa-circle-arrow-right "></i>')}
              <hr/>
             <div class="d-flex justify-content-between align-items-center" >
 
@@ -48,7 +48,7 @@ div_container.appendChild(div);
 }
 
 //modal-part-code
-
+//see all button section
 document.getElementById('seebtn').addEventListener('click',function(){
     fetch('https://openapi.programming-hero.com/api/ai/tools')
     .then(res=>res.json())
@@ -57,17 +57,29 @@ document.getElementById('seebtn').addEventListener('click',function(){
 })
 
 
-// function fetchdata1(){
+document.getElementById('sortdate').addEventListener('click',function(){
+    fetch('https://openapi.programming-hero.com/api/ai/tools')
+    .then(res=>res.json())
+    .then(data=>{
+       
+
+        // const sortdate=(a,b)=>{
+        //     const datea=new Date(a.published_in);
+        //     const dateb=new Date(b.published_in);
+        //     if(datea>dateb) return 1;
+        //     else if(datea<dateb) return -1;
+        //     return 0;}
+        // display(data.data.tools.sort(sortdate))
+        // document.getElementById('seebtn').classList.add('d-none');
+
+
+    } )})
+
+
+
+
+
+
+   
+   
     
-
-// }
-// fetchdata1()
-
-
-    
-console.log(fetchdata);
-
-
-function sortdate(getdatedata){
-
-}
