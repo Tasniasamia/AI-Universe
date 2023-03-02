@@ -63,14 +63,14 @@ document.getElementById('sortdate').addEventListener('click',function(){
     .then(data=>{
        
 
-        // const sortdate=(a,b)=>{
-        //     const datea=new Date(a.published_in);
-        //     const dateb=new Date(b.published_in);
-        //     if(datea>dateb) return 1;
-        //     else if(datea<dateb) return -1;
-        //     return 0;}
-        // display(data.data.tools.sort(sortdate))
-        // document.getElementById('seebtn').classList.add('d-none');
+        const sortdate=(a,b)=>{
+            const datea=new Date(a.published_in);
+            const dateb=new Date(b.published_in);
+            if(datea>dateb) return 1;
+            else if(datea<dateb) return -1;
+            return 0;}
+        display(data.data.tools.sort(sortdate))
+        document.getElementById('seebtn').classList.add('d-none');
 
 
     } )})
