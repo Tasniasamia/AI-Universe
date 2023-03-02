@@ -58,7 +58,7 @@ const modal_section=search_id=>{
 }
 const modal_display=(modaldata)=>{
 console.log(modaldata);
-
+document.getElementById('modal_body').innerHTML=``;
 
 }
 
