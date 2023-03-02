@@ -21,8 +21,8 @@ div.innerHTML=`
             <div class="card-body">
               <h5 class="card-title font-bold">Feature</h5>
        
-              <p class="card-text"> <i class="fa-solid fa-circle-arrow-right "></i>
-            ${index.features.join('<br> <i class="fa-solid fa-circle-arrow-right "></i>')}
+              <p class="card-text"> <i class="fa-solid fa-circle-arrow-right me-2"></i>
+            ${index.features.join('<br> <i class="fa-solid fa-circle-arrow-right me-2"></i>')}
              <hr/>
             <div class="d-flex justify-content-between align-items-center" >
 
