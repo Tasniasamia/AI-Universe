@@ -131,17 +131,32 @@ document.getElementById('seebtn').addEventListener('click',function(){
     .then(res=>res.json())
     .then(data=>display(data.data.tools))  
     document.getElementById('seebtn').classList.add('d-none');
+
+    document.getElementById('sortdate').addEventListener('click',function(){
+  
+        fetch('https://openapi.programming-hero.com/api/ai/tools')
+        .then(res=>res.json())
+        .then(data=>{
+           
+            
+            load(true);
+        
+            display((data.data.tools).sort(sortdate))
+            document.getElementById('seebtn').classList.add('d-none');
+    
+    
+        } )})
 })
 
 
     //slice card sort
-//     document.getElementById('sortdate').addEventListener('click',function(){
+    document.getElementById('sortdate').addEventListener('click',function(){
   
-//         fetch('https://openapi.programming-hero.com/api/ai/tools')
-//         .then(res=>res.json())
-//         .then(data=>{
-//          display(((data.data.tools).slice(0,6)).sort(sortdate))
-// } )})
+        fetch('https://openapi.programming-hero.com/api/ai/tools')
+        .then(res=>res.json())
+        .then(data=>{
+         display(((data.data.tools).slice(0,6)).sort(sortdate))
+} )})
 
         //all card sort
 // document.getElementById('sortdate').addEventListener('click',function(){
