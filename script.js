@@ -69,11 +69,11 @@ const modal_display = (modaldata) => {
 <div class="row row-cols-1 row-cols-md-2 g-4">
 <div class="col">
   <div class="card h-100 p-3 bg-light">
-   <h5 class="card-title">${modaldata.description}</h5>
+   <h5 class="card-title"style="font-weight:bold">${modaldata.description}</h5>
 
     <div class="card-body">
     
-    <div class="d-flex  justify-content-center">
+    <div class="d-flex  justify-content-center ">
     <div class="bg-white p-2 d-flex justify-content-between align-items-center text-center rounded text-success "style="font-weight:bold;width:60%">${modaldata.pricing !== null ? modaldata.pricing[0].price : "Free of Cost"} ${modaldata.pricing !== null ? modaldata.pricing[0].plan : "/Basic"}</div>
     <div class="bg-white mx-1 p-2  d-flex justify-content-between align-items-center text-center rounded text-warning "style="font-weight:bold;width:60%">${modaldata.pricing !== null ? modaldata.pricing[1].price : "Free of Cost"} ${modaldata.pricing !== null ? modaldata.pricing[1].plan : "/Pro"} </div>
     <div class="bg-white p-2  d-flex justify-content-between align-items-center text-center rounded text-danger "style="font-weight:bold;width:60%">${modaldata.pricing !== null ? modaldata.pricing[2].price : "Free of Cost"} ${modaldata.pricing !== null ? modaldata.pricing[2].plan : "/Enterprice"} </div>                  
@@ -99,7 +99,7 @@ const modal_display = (modaldata) => {
     ${modaldata.accuracy.score != null ? `<button id="btn2" class="btn btn-danger"style="position:absolute;right:0;top:0;">${(modaldata.accuracy.score * 100)}% accuracy</button>` : " "}</div>
     <div>
     <div class="card-body text-center">
-      <h5 class="card-title">${modaldata.input_output_examples ? modaldata.input_output_examples[0].input : "Can you give any example? "}</h5>
+      <h5 class="card-title"style="font-weight:bold;">${modaldata.input_output_examples ? modaldata.input_output_examples[0].input : "Can you give any example? "}</h5>
       <p class="card-text my-4">${modaldata.input_output_examples ? modaldata.input_output_examples[1].output : "No! Not Yet! Take a break!!!"}</p>
     </div>
   </div>
@@ -160,21 +160,7 @@ document.getElementById('sortdate').addEventListener('click', function () {
         })
 })
 
-//all card sort
-// document.getElementById('sortdate').addEventListener('click',function(){
 
-//     fetch('https://openapi.programming-hero.com/api/ai/tools')
-//     .then(res=>res.json())
-//     .then(data=>{
-
-
-//         load(true);
-
-//         display((data.data.tools).sort(sortdate))
-//         document.getElementById('seebtn').classList.add('d-none');
-
-
-//     } )})
 //date sorting
 const sortdate = (a, b) => {
     const datea = new Date(a.published_in);
