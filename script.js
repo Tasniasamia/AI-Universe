@@ -14,9 +14,10 @@ const display=(datas)=>{
 div_container.innerHTML="";
 datas.forEach(index=>{
 const div=document.createElement('div');
+div.classList.add('col')
 div.innerHTML=`
-          <div class="col">
-          <div class="card p-3">
+         
+          <div class="card h-100 ">
             <img src="${index.image}"style="height:250px;" class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title font-bold">Feature</h5>
@@ -39,7 +40,7 @@ div.innerHTML=`
             </div>
               </div>
           </div>
-        </div>
+     
 
 `
 div_container.appendChild(div);
@@ -62,19 +63,39 @@ document.getElementById('modal_body').innerHTML=`
 
 <div class="row row-cols-1 row-cols-md-2 g-4">
 <div class="col">
-  <div class="card"">
-   
+  <div class="card h-100 p-3">
+   <h5 class="card-title">${modaldata.description}</h5>
+
     <div class="card-body">
     
+    <div class="d-flex  justify-content-center">
+    <div class="bg-light p-2 d-flex justify-content-between align-items-center text-center rounded">${modaldata.pricing!==null?modaldata.pricing[0].price:"Free of Cost"} ${modaldata.pricing!==null?modaldata.pricing[0].plan:"/Basic"}</div>
+    <div class="bg-light mx-1 p-2  d-flex justify-content-between align-items-center text-center rounded">${modaldata.pricing!==null?modaldata.pricing[1].price:"Free of Cost"} ${modaldata.pricing!==null?modaldata.pricing[1].plan:"/Pro"} </div>
+    <div class="bg-light p-2  d-flex justify-content-between align-items-center text-center rounded">${modaldata.pricing!==null?modaldata.pricing[2].price:"Free of Cost"} ${modaldata.pricing!==null?modaldata.pricing[2].plan:"/Enterprice"} </div>                  
+    </div>
+
+   <div class="d-flex  justify-content-between my-4">
+   <div ><span class="mx-4" style="font-weight:bold">Features:</span>${Object.entries(modaldata.features).map(index=>`<ul><li>${index[1].feature_name}</li></ul>`).join(' ')}</div>
+   <div>
+   
+   <p><span class="mx-4" style="font-weight:bold">Integration:</span><br/>${modaldata.integrations!==null?modaldata.integrations.map(index=> `<ul><li>${index}</li></ul>`).join(' '):`<span class="ms-3">No data Found</span>`}</p>
+   </div>
+
+   </div>
+
+
     </div>
   </div>
 </div>
 <div class="col">
-  <div class="card">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+  <div class="card  h-100 p-3">
+  <div style="position:relative;">
+    <img src="${modaldata.image_link[0]}"style="height:200px;" class="card-img-top" alt="...">
+    ${modaldata.accuracy.score!=null?`<button id="btn2" class="btn btn-danger"style="position:absolute;right:0;top:0;">${(modaldata.accuracy.score*100)}% accuracy</button>`:" " }</div>
+    <div>
+    <div class="card-body text-center">
+      <h5 class="card-title">${modaldata.input_output_examples?modaldata.input_output_examples[0].input:"Can you give any example? "}</h5>
+      <p class="card-text">${modaldata.input_output_examples?modaldata.input_output_examples[1].output:"No! Not Yet! Take a break!!!"}</p>
     </div>
   </div>
 </div>
@@ -113,12 +134,7 @@ document.getElementById('sortdate').addEventListener('click',function(){
     .then(data=>{
        
 
-        const sortdate=(a,b)=>{
-            const datea=new Date(a.published_in);
-            const dateb=new Date(b.published_in);
-            if(datea>dateb) return 1;
-            else if(datea<dateb) return -1;
-            return 0;}
+       
         display(data.data.tools.sort(sortdate))
         document.getElementById('seebtn').classList.add('d-none');
 
@@ -126,10 +142,23 @@ document.getElementById('sortdate').addEventListener('click',function(){
     } )})
 
 
-
+    const sortdate=(a,b)=>{
+        const datea=new Date(a.published_in);
+        const dateb=new Date(b.published_in);
+        if(datea>dateb) return 1;
+        else if(datea<dateb) return -1;
+        return 0;}
+   
 
 
 
    
    
     
+
+
+
+
+
+
+    // <button class="btn btn-danger">${modaldata.accuracy?(modaldata.accuracy.score*100)+'%':"No"} accuracy</button>
