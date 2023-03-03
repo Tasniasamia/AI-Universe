@@ -1,5 +1,5 @@
 const div_container=document.getElementById('div_container');
-let fetchdata=[];
+
 
 
  fetch('https://openapi.programming-hero.com/api/ai/tools')
@@ -7,7 +7,8 @@ let fetchdata=[];
 .then(data=>{
     
     display((data.data.tools).slice(0,6))
-})
+   
+    })
 
 
 const display=(datas)=>{
@@ -22,8 +23,12 @@ div.innerHTML=`
             <div class="card-body">
               <h5 class="card-title font-bold">Feature</h5>
        
-              <p class="card-text"> <i class="fa-solid fa-circle-arrow-right me-1"></i>
-            ${index.features.join('<br> <i class="fa-solid fa-circle-arrow-right me-2"></i>')}
+         
+
+            <div >${index.features.map(index2=>`<li style="list-style-type:decimal">${index2}</li>`).join('')}</div>
+            <div>
+
+
              <hr/>
             <div class="d-flex justify-content-between align-items-center" >
 
@@ -129,21 +134,30 @@ document.getElementById('seebtn').addEventListener('click',function(){
 })
 
 
-document.getElementById('sortdate').addEventListener('click',function(){
-    load(true);
-    fetch('https://openapi.programming-hero.com/api/ai/tools')
-    .then(res=>res.json())
-    .then(data=>{
-       
+    //slice card sort
+//     document.getElementById('sortdate').addEventListener('click',function(){
+  
+//         fetch('https://openapi.programming-hero.com/api/ai/tools')
+//         .then(res=>res.json())
+//         .then(data=>{
+//          display(((data.data.tools).slice(0,6)).sort(sortdate))
+// } )})
 
+        //all card sort
+// document.getElementById('sortdate').addEventListener('click',function(){
+  
+//     fetch('https://openapi.programming-hero.com/api/ai/tools')
+//     .then(res=>res.json())
+//     .then(data=>{
        
-        display(data.data.tools.sort(sortdate))
         
-        document.getElementById('seebtn').classList.add('d-none');
+//         load(true);
+    
+//         display((data.data.tools).sort(sortdate))
+//         document.getElementById('seebtn').classList.add('d-none');
 
 
-    } )})
-
+//     } )})
 //date sorting
     const sortdate=(a,b)=>{
         const datea=new Date(a.published_in);
@@ -174,4 +188,5 @@ loadbtn.classList.remove('d-none');
 
 
 
-   
+{/* <p class="card-text"> <i class="fa-solid fa-circle-arrow-right me-1"></i>
+${index.features.join('<br> <i class="fa-solid fa-circle-arrow-right me-2"></i>')}</p> */}
