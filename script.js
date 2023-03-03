@@ -25,7 +25,7 @@ const display = (datas) => {
        
          
 
-            <div >${index.features.map(index2 => `<li style="list-style-type:decimal">${index2}</li>`).join('')}</div>
+            <div class="ps-2">${index.features.map(index2 => `<li style="list-style-type:decimal">${index2}</li>`).join('')}</div>
             <div>
 
 
