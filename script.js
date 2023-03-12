@@ -16,6 +16,7 @@ const display = (datas) => {
     datas.forEach(index => {
         const div = document.createElement('div');
         div.classList.add('col')
+        console.count();
         div.innerHTML = `
          
           <div class="card h-100 ">
